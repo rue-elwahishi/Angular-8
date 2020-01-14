@@ -1,0 +1,26 @@
+<h1>Welcome</h1>
+<div class="play-container">
+  <p>
+    You've clicked <span (click)="countClick()"> this </span>
+    {{ clickCounter }} times.
+  </p>
+</div>
+<div class="play-container">
+  <p>
+    <input type="text" [(ngModel)]="name" />
+    <br />
+    <strong> you said: </strong> {{ name }}
+  </p>
+</div>
+<div class="play-container" [ngClass]="setClasses()">
+  <!-- if the expression is true its going to result whever in the template 
+    if not its going to result none template -->
+  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+    <p>the clickCounter is greater than 4</p></ng-template
+  >
+
+  <!-- this is a refrence to the none -->
+  <ng-template #none>
+    clickCounter is <strong> not greater</strong>
+  </ng-template>
+</div>
